@@ -1,3 +1,41 @@
+# 👋 Merhaba, Ben Mutinous! 
+
+Finansal piyasa analizleri, teknoloji ve çoklu kategori içerik üretimi üzerine odaklanıyorum. Piyasa trendlerini takip ediyor, analizlerimi ve projelerimi toplulukla paylaşıyorum.
+
+> 💡 *"Bilgi paylaşıldıkça kıymetli ve değerlidir."*
+
+---
+
+### 🌐 Sosyal Medya & Topluluk
+
+[![YouTube](https://img.shields.io/badge/YouTube-PiyasaAnalizim-red?style=flat&logo=youtube)](https://youtube.com/@PiyasaAnalizim)
+[![YouTube](https://img.shields.io/badge/YouTube-MutinousTube-red?style=flat&logo=youtube)](https://youtube.com/@MutinousTube)
+[![X](https://img.shields.io/badge/X-PiyasaAnalizim-black?style=flat&logo=x)](https://www.x.com/PiyasaAnalizim)
+[![Instagram](https://img.shields.io/badge/Instagram-PiyasaAnalizim-E4405F?style=flat&logo=instagram)](https://www.instagram.com/PiyasaAnalizim)
+[![Telegram](https://img.shields.io/badge/Telegram-Kanalım-26A5E4?style=flat&logo=telegram)](https://t.me/PiyasaAnalizci)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-Kanalım-25D366?style=flat&logo=whatsapp)](https://whatsapp.com/channel/0029VbCUgXf6WaKnetLyMi34)
+
+---
+
+### 🤝 Bağımsız Yayıncılığı Destekleyin
+
+Bağımsız içeriklerimi sürdürebilmem için bana destek olabilirsiniz:
+* **Patreon:** [patreon.com/MutinousTube](https://www.patreon.com/MutinousTube)
+* **YouTube:** Katıl butonunu ve Süper Teşekkür'ü kullanabilirsiniz.
+
+---
+
+### 📩 İletişim & Kartvizit
+
+* **Web Site:** [piyasaanaliz.github.io](https://piyasaanaliz.github.io)
+* **E-posta:** MutinousTube@gmail.com
+
+---
+
+> ⚠️ **Yasal Uyarı / Disclaimer:** Bu kanalda ve profilde yer alan içerikler yalnızca bilgi amaçlıdır. Yatırım danışmanlığı kapsamında değildir. Yapılan işlemler tamamen kişinin kendi sorumluluğundadır.
+> 
+
+
 # 📈 Canlı Piyasa Analiz Paneli
 Piyasa verilerini ve canlı grafikleri aşağıdaki bağlantılardan anlık takip edebilirsiniz.
 ---
