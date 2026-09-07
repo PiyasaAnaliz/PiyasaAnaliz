@@ -1,97 +1,31 @@
-import os
-import logging
-from datetime import datetime
-import yfinance as yf
+# 📈 Canlı Piyasa Analiz Paneli
+Piyasa verilerini ve canlı grafikleri aşağıdaki bağlantılardan anlık takip edebilirsiniz.
+---
+### 💰 Değerli Madenler & Emtialar
 
-# Loglama ayarları
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+| Varlık | Sembol | Canlı Grafik |
+| :--- | :--- | :--- |
+| **Altın (Ons)** | `GC=F` | [![Altın](https://img.shields.io/badge/Canlı_Grafik-GOLD-gold?style=flat-square&logo=tradingview)](https://tr.tradingview.com/symbols/TVC-GOLD/) |
+| **Gümüş (Ons)** | `SI=F` | [![Gümüş](https://img.shields.io/badge/Canlı_Grafik-SILVER-silver?style=flat-square&logo=tradingview)](https://tr.tradingview.com/symbols/TVC-SILVER/) |
+| **Ham Petrol** | `CL=F` | [![Petrol](https://img.shields.io/badge/Canlı_Grafik-OIL-black?style=flat-square&logo=tradingview)](https://tr.tradingview.com/symbols/TVC-USOIL/) |
 
-COMMODITIES = {
-    "Altın": "GC=F",
-    "Gümüş": "SI=F",
-    "Bakır": "HG=F",
-    "Ham Petrol": "CL=F"
-}
+---
+### 💱 Döviz Kurları
 
-EXCHANGES = {
-    "Dolar/TL": "USDTRY=X",
-    "Euro/TL": "EURTRY=X",
-    "Euro/Dolar": "EURUSD=X"
-}
+| Parite | Sembol | Canlı Grafik |
+| :--- | :--- | :--- |
+| **Dolar / TL** | `USDTRY=X` | [![USD/TRY](https://img.shields.io/badge/Canlı_Grafik-USD%2FTRY-green?style=flat-square&logo=tradingview)](https://tr.tradingview.com/symbols/USDTRY/) |
+| **Euro / TL** | `EURTRY=X` | [![EUR/TRY](https://img.shields.io/badge/Canlı_Grafik-EUR%2FTRY-blue?style=flat-square&logo=tradingview)](https://tr.tradingview.com/symbols/EURTRY/) |
+| **Euro / Dolar** | `EURUSD=X` | [![EUR/USD](https://img.shields.io/badge/Canlı_Grafik-EUR%2FUSD-orange?style=flat-square&logo=tradingview)](https://tr.tradingview.com/symbols/EURUSD/) |
 
-WORLD_INDICES = {
-    "Dow Jones": "^DJI",
-    "S&P 500": "^GSPC",
-    "NASDAQ": "^IXIC",
-    "BIST 100": "XU100.IS"
-}
+---
+### 📊 Borsa Endeksleri
 
-def fetch_data(symbols_dict):
-    rows = []
-    for name, ticker_symbol in symbols_dict.items():
-        try:
-            ticker = yf.Ticker(ticker_symbol)
-            price = ticker.fast_info.get('last_price')
-            if price:
-                rows.append(f"| **{name}** | `{ticker_symbol}` | `{round(price, 2)}` |")
-            else:
-                rows.append(f"| **{name}** | `{ticker_symbol}` | N/A |")
-        except Exception as e:
-            logging.error(f"{name} verisi alınamadı: {e}")
-            rows.append(f"| **{name}** | `{ticker_symbol}` | Hata |")
-    return rows
+| Endeks | Sembol | Canlı Grafik |
+| :--- | :--- | :--- |
+| **BIST 100** | `XU100.IS` | [![BIST 100](https://img.shields.io/badge/Canlı_Grafik-BIST_100-red?style=flat-square&logo=turkey)](https://tr.tradingview.com/symbols/BIST-XU100/) |
+| **S&P 500** | `^GSPC` | [![S&P 500](https://img.shields.io/badge/Canlı_Grafik-S%26P_500-blue?style=flat-square&logo=tradingview)](https://tr.tradingview.com/symbols/SPX/) |
+| **NASDAQ** | `^IXIC` | [![NASDAQ](https://img.shields.io/badge/Canlı_Grafik-NASDAQ-darkblue?style=flat-square&logo=tradingview)](https://tr.tradingview.com/symbols/NASDAQ-IXIC/) |
 
-def generate_markdown():
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    
-    md_content = "<!-- MARKET_DATA_START -->\n"
-    md_content += "### 📈 Canlı Piyasa Analiz Paneli\n"
-    md_content += f"*Son Güncelleme: `{now}`*\n\n"
-    
-    md_content += "#### 💰 Değerli Madenler & Emtialar\n"
-    md_content += "| Varlık | Sembol | Fiyat |\n| :--- | :--- | :--- |\n"
-    md_content += "\n".join(fetch_data(COMMODITIES)) + "\n\n"
-    
-    md_content += "#### 💱 Döviz Kurları\n"
-    md_content += "| Çift | Sembol | Oran |\n| :--- | :--- | :--- |\n"
-    md_content += "\n".join(fetch_data(EXCHANGES)) + "\n\n"
-    
-    md_content += "#### 📊 Borsa Endeksleri\n"
-    md_content += "| Endeks | Sembol | Değer |\n| :--- | :--- | :--- |\n"
-    md_content += "\n".join(fetch_data(WORLD_INDICES)) + "\n"
-    md_content += "<!-- MARKET_DATA_END -->"
-    
-    return md_content
-
-def update_readme():
-    readme_path = "README.md"
-    
-    # README dosyası yoksa varsayılan etiketlerle oluştur
-    if not os.path.exists(readme_path):
-        with open(readme_path, "w", encoding="utf-8") as f:
-            f.write("<!-- MARKET_DATA_START -->\n<!-- MARKET_DATA_END -->")
-            
-    with open(readme_path, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    start_marker = "<!-- MARKET_DATA_START -->"
-    end_marker = "<!-- MARKET_DATA_END -->"
-
-    # Etiketler varsa arasını değiştir, yoksa en alta ekle
-    if start_marker in content and end_marker in content:
-        before = content.split(start_marker)[0]
-        after = content.split(end_marker)[1]
-        new_content = before + generate_markdown() + after
-    else:
-        new_content = content + "\n\n" + generate_markdown()
-
-    with open(readme_path, "w", encoding="utf-8") as f:
-        f.write(new_content)
-        
-    logging.info("README.md başarıyla güncellendi.")
-
-if __name__ == "__main__":
-    update_readme()
+---
+🔗 **Hızlı Erişim:** [TradingView Canlı Takip](https://tr.tradingview.com/) • [Google Finance](https://www.google.com/finance)
