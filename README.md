@@ -1,4 +1,4 @@
-# 👋 Merhaba, Ben Mutinous! 
+# 👋 Merhaba! 
 
 Finansal piyasa analizleri, teknoloji ve çoklu kategori içerik üretimi üzerine odaklanıyorum. Piyasa trendlerini takip ediyor, analizlerimi ve projelerimi toplulukla paylaşıyorum.
 
